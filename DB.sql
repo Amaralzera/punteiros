@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`usuario` (
   `nome` VARCHAR(255) NOT NULL,
   `username` VARCHAR(255) NOT NULL,
   `senha` VARCHAR(255) NOT NULL,
-  `documento_share` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idusr`))
 ENGINE = InnoDB;
 
