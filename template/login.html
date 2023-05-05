@@ -1,9 +1,9 @@
 {% if erro == 1 %}
-    <marquee>Usuário ou senha inválido!</marquee>
+    Usuário ou senha inválido!
 {% elseif erro == 2 %}
-    <marquee>Está no caminho errado</marquee>
+    Está no caminho errado
 {% elseif erro == 3 %}
-    <marquee>Senha alterada! verifica seu email</marquee>
+    Senha alterada! verifica seu email
 {% endif %}
 
 <html lang="pt-br">
@@ -15,7 +15,7 @@
 </head>
 <body>
     Login:
-    <form action="login_verifica.php" method="post">
+    <form action="/punteiros/login_verifica.php" method="post">
     <div>
         <input type="text" name="email" placeholder="email">
     </div>
@@ -28,7 +28,7 @@
 </form>
 
 <div>
-    Se não tiver uma conta!! <a href="cadastro.html">cadastre-se aqui</a>
+    Se não tiver uma conta!! <a href="/punteiros/cadastro.html">cadastre-se aqui</a>
 </div>
 </body>
 </html>
