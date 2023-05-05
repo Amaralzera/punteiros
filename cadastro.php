@@ -27,7 +27,7 @@ if($usr->insert([
 
     header('home.html');
     
-}else{
+}elseif(mysqli_errno() == 1062){
     echo('ocorreu um erro ao realizar o cadastro');
     echo "<a href='cadastro.html'>Voltar</a>";
 }
