@@ -1,11 +1,11 @@
 {% if erro == 1 %}
-    Usuário ou senha inválido!
+    <marquee>Usuário ou senha inválido!</marquee>
 {% elseif erro == 2 %}
-    Não é permitido
+    <marquee>Está no caminho errado</marquee>
 {% elseif erro == 3 %}
-    Senha alterada!
+    <marquee>Senha alterada! verifica seu email</marquee>
 {% endif %}
-<!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
     Login:
     <form action="login_verifica.php" method="post">
     <div>
-        <input type="text" name="username" placeholder="Usuário">
+        <input type="text" name="email" placeholder="email">
     </div>
     <div>
         <input type="password" name="pass" placeholder="Senha">
@@ -28,7 +28,7 @@
 </form>
 
 <div>
-    Se não tiver uma conta, <a href="cadastro.php">cadastre-se aqui</a>
+    Se não tiver uma conta!! <a href="cadastro.php">cadastre-se aqui</a>
 </div>
 </body>
 </html>
