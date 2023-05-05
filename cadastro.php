@@ -3,13 +3,13 @@ require('carrega/twig.php');
 require('carrega/pdo.inc.php');
 
 $nome = $_POST['nome'];
-$user = $_POST['username'];
+$email = $_POST['email'];
 $pass = $_POST['senha'];
 
 $usr = new Usuario();
 $usr->create([
     'nome' => $nome,
-    'username' => $user,
+    'email' => $email,
     'senha' => $senha,
 ]);
 
