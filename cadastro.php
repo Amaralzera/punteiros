@@ -17,21 +17,25 @@ if(!$nome || !$email || !$pass || !$id){
 $pass = password_hash($pass, PASSWORD_BCRYPT);
 
 $usr = new Usuario();
-if($usr->insert([
+
+$usr->insert([
     'idusr' => $id,
     'nome' => $nome,
     'email' => $email,
     'senha' => $pass,
-])){
-    $_SESSION["user"] = $id;
+]);
 
-    header('home.html');
-    
-}elseif(mysqli_errno() == 1062){
-    echo('ocorreu um erro ao realizar o cadastro');
+$_SESSION["user"] = $id;
+
+if(str_contains($e, '1062 Duplicate entry')) {
+        echo('ocorreu um erro ao realizar o cadastro');
     echo "<a href='cadastro.html'>Voltar</a>";
+
 }
 
 
 
 
+
+    
+    
