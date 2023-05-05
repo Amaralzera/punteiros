@@ -13,11 +13,10 @@ protected $conex;
 public function __construct(){
 
     $tbl = strtolower(get_class($this));
-    $tbl .= 's';
     $this->table = $tbl;
     $this->conex = new PDO("{$this->driver}:host={$this->host};port={$this->porta}; dbname={$this->dbname}",$this->user ,$this->password);
 }
-public function create($data){
+public function insert($data){
     //Inicia a construção dp SQL
     $sql = "INSERT INTO {$this->table}";
 
