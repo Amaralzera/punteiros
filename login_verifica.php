@@ -27,7 +27,7 @@ $id = $_GET['idusr'];
 
         // Cria uma sessão para armazenar o usuário
         session_start();
-        $_SESSION['email'] = $usr->nome;
+        $_SESSION['id'] = $usr->idusr;
         $_SESSION['user'] = 'logado';
     
         

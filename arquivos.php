@@ -8,8 +8,6 @@ $id = $_GET['idusr'];
 
 session_start();
 
-$user = null;
-
 if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'logado') {
     header('Location: login.php');
     die;

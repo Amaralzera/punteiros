@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px solid black">
+
+<thead >
+    <tr>
+        <th>Usuarios</th>
+         <th>Permitir edição</th>
+        <th>Compartilhar documento</th>
+    </tr>
+</thead>
+
+<tbody>
+    {%for usr in users%}
+        <tr >
+            <td >{{usr.nome}}</td>
+            <td><input type="checkbox" name="perm" id="perm" value="sim"></td>
+            <td><a href="compartilhar.php?idusr={{usr.idusr}}&iddoc={{doc.iddoc}}" onclick="compartilhar('{{ usr.idusr }}', '{{ doc.iddoc }}')">Compartilhar</a></td>
+        </tr>
+        {%else%}
+            <tr>
+            <td colspan = 2>Nenhum usuario encontrado</td>
+            </tr>
+    {%endfor%}
+</tbody>
+</table>
+
+<script>
+ function compartilhar(idusr, iddoc) {
+            var checkbox = document.getElementById('perm');
+            var perm = checkbox.checked ? 'sim' : 'nao';
+            var url = 'compartilhar.php?idusr=' + idusr + '&iddoc=' + iddoc + '&perm=' + perm;
+            window.location.href = url;
+        }
+</script>
+</body>
+</html>

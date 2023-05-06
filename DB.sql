@@ -50,7 +50,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`doc_share` (
   `iddoc_share` INT NOT NULL AUTO_INCREMENT,
   `documento_iddoc` INT NOT NULL,
-  `permissao` VARCHAR(255) NOT NULL,
   `usr_recebe` INT NOT NULL,
   PRIMARY KEY (`iddoc_share`),
   CONSTRAINT `fk_doc_share_documento1`

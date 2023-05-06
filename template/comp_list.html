@@ -8,27 +8,30 @@
 </head>
 <body>
     <table border="1px solid black">
+<h1>Arquivos Compartilhados com você:</h1>
 
 <thead >
     <tr>
-        <th >Nome do arquivo</th>
-        <th class="px-6 py-4 font-medium text-gray-900">Arquivo</th>
+        <th>Remetente</th>
+        <th>Nome do arquivo</th>
+        <th>Arquivo</th>
     </tr>
 </thead>
 
-<tbody class="divide-y divide-gray-100 border-t border-gray-100">
-    {%for doc in documentos%}
+<tbody>
+    {%for usr in users%}
         <tr >
-            <td >{{doc.nome_doc}}</td>
-            <td >{{doc.file}}</td>
-            <td><a href="showU.php?iddoc={{doc.iddoc}}&idusr={{doc.usuario_idusr}}">Compartilhar documento</a></td>
+            <td >{{usr.usr_nome}}</td>
+            <td>{{usr.doc_nome}}</td>
+            <td>{{usr.doc_file}}</td>
         </tr>
         {%else%}
             <tr>
-            <td colspan = 2>Nenhum Arquivo adicionado</td>
+            <td colspan = 2>Nenhum arquivo compartilhado</td>
             </tr>
     {%endfor%}
 </tbody>
 </table>
+<a href="index.php?idusr={{idusr}}">Voltar</a>
 </body>
 </html>
