@@ -4,5 +4,7 @@
 
     $erro = $_GET['erro'] ?? false;
 
-    echo $twig->render('login.html', ['erro' => $erro,]);
+    echo $twig->render('login.html', [
+        'erro' => $erro,
+    ]);
     
