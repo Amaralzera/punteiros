@@ -16,6 +16,20 @@ public function __construct(){
     $this->table = $tbl;
     $this->conex = new PDO("{$this->driver}:host={$this->host};port={$this->porta}; dbname={$this->dbname}",$this->user ,$this->password);
 }
+
+public function getAll($where = false, $where_glue = 'AND'){
+    if($where){
+        $where_sql = $this->where_fields($where, $where_glue);
+
+        $sql = $this->conex->prepare("SELECT * FROM {$this->table} WHERE {$where_sql}");
+        $sql->execute($where);
+    }else{
+        $sql = $this->conex->query("SELECT * FROM {$this->table}");
+    }
+
+    return $sql->fetchAll(PDO::FETCH_ASSOC);
+
+}
 public function insert($data){
     //Inicia a construção dp SQL
     $sql = "INSERT INTO {$this->table}";

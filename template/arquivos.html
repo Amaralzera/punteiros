@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px solid black">
+
+<thead >
+    <tr>
+        <th >Nome do arquivo</th>
+        <th class="px-6 py-4 font-medium text-gray-900">Arquivo</th>
+    </tr>
+</thead>
+
+<tbody class="divide-y divide-gray-100 border-t border-gray-100">
+    {%for doc in documentos%}
+        <tr >
+            <td >{{doc.nome_doc}}</td>
+            <td >{{doc.file}}</td>
+            <td><a href="compartilhar.php?iddoc={{doc.iddoc}}">Compartilhar documento</a></td>
+        </tr>
+        {%else%}
+            <tr>
+            <td colspan = 2>Nenhum Usuario</td>
+            </tr>
+    {%endfor%}
+</tbody>
+</table>
+</body>
+</html>
