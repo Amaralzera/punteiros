@@ -1,0 +1,3 @@
+João -> Banco de dados, cadastro e compartilhamento de arquivos
+
+Alisson -> Login, upload de arquivos e busca de arquivos
