@@ -4,7 +4,6 @@ require('carrega/pdo.inc.php');
 session_start();
 
 $id = $_GET['idusr'];
-$perm = $_SESSION['perm'];
 
 if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'logado') {
     header('Location: login.php');

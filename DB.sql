@@ -64,6 +64,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`doc_share` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Alter table `mydb`.`doc_share` to have `permissao`
+-- -----------------------------------------------------
+
+ALTER TABLE `doc_share` ADD `permissao` INT(1) NULL AFTER `iddoc_share`;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

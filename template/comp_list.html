@@ -15,6 +15,7 @@
         <th>Remetente</th>
         <th>Nome do arquivo</th>
         <th>Arquivo</th>
+        <th>Editar| Excluir</th>
     </tr>
 </thead>
 
@@ -24,6 +25,14 @@
             <td >{{usr.usr_nome}}</td>
             <td>{{usr.doc_nome}}</td>
             <td>{{usr.doc_file}}</td>
+
+            {% if usr.permissao == 2 %}
+            <td><a href="editar.php">Editar</a> | <a href="exluir.php">Excluir</a></td>
+            {% else %}
+            <td>Sem premissão!</td>
+            {% endif %}
+            
+
         </tr>
         {%else%}
             <tr>

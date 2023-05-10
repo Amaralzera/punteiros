@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+
     <table border="1px solid black">
 
 <thead >
@@ -19,11 +20,21 @@
 
 <tbody>
     {%for usr in users%}
+    <form action="compartilhar.php?idusr={{usr.idusr}}&iddoc={{doc.iddoc}}" method="post">
         <tr >
             <td >{{usr.nome}}</td>
-            <td><input type="checkbox" name="perm" id="perm" value="sim"></td>
-            <td><a href="compartilhar.php?idusr={{usr.idusr}}&iddoc={{doc.iddoc}}" onclick="compartilhar('{{ usr.idusr }}', '{{ doc.iddoc }}')">Compartilhar</a></td>
+
+
+            <td>
+                <select name="select" id="">
+                    <option value="1" name="viz">Vizualizar</option>
+                    <option value="2" name="edit">Editar</option>
+                </select>
+            </td>
+
+            <td><input type="submit" value="Compartilhar"></td>
         </tr>
+        </form>
         {%else%}
             <tr>
             <td colspan = 2>Nenhum usuario encontrado</td>
@@ -32,13 +43,5 @@
 </tbody>
 </table>
 
-<script>
- function compartilhar(idusr, iddoc) {
-            var checkbox = document.getElementById('perm');
-            var perm = checkbox.checked ? 'sim' : 'nao';
-            var url = 'compartilhar.php?idusr=' + idusr + '&iddoc=' + iddoc + '&perm=' + perm;
-            window.location.href = url;
-        }
-</script>
 </body>
 </html>
