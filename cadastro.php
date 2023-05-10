@@ -10,7 +10,7 @@ $email = $_POST['email'];
 $pass = $_POST['senha'];
 
 if(!$nome || !$email || !$pass){
-    header('location:cadastro.html');
+    header('location:login.html');
 }
 
 $pass = password_hash($pass, PASSWORD_BCRYPT);

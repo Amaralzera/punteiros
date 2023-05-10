@@ -16,4 +16,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'logado') {
 $doc = new Documento();
 $documentos = $doc->getAll(['usuario_idusr' => $id]);
 
-echo $twig->render('arquivos.html', ['documentos' => $documentos,]);
+echo $twig->render('arquivos.html', [
+    'documentos' => $documentos,
+    'idusr' => $id,
+]);

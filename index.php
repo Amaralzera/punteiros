@@ -32,6 +32,11 @@ if (!$user) {
     die("Usuario não encontrado");
 }
 
+if (isset($_SESSION['id']) && $_SESSION['id'] != $user['idusr']) {
+    session_destroy();
+    header("location:login.php");
+}
+
 echo $twig->render('index.html', [
     'usr' => $user,
     'perm' => $permissao,
