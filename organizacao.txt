@@ -1,3 +1,3 @@
-João -> Banco de dados, cadastro, login e compartilhamento de arquivos, exluir documento
+João -> Banco de dados, cadastro, login e compartilhamento de arquivos
 
-Alisson -> upload de arquivos, busca de arquivos
+Alisson -> upload de arquivos, busca de arquivos, excluir documento
