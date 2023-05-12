@@ -1,11 +1,10 @@
 <?php
-$user = "seu_usuario";
-$password = "sua_senha";
-$dbname = "seu_banco_de_dados";
+$user = "";
+$password = "";
+$dbname = "`mydb";
 
 $conn = mysqli_connect($user, $password, $dbname);
 
-// Verificar a conexão
 if (!$conn) {
   die("Conexão falhou: " . mysqli_connect_error());
 }
@@ -28,7 +27,7 @@ if (!empty($proprietario)) {
   $sql .= " AND proprietario = '$proprietario'";
 }
 
-// Executar a consulta SQL e mostrar os resultados
+
 $resultado = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($resultado) > 0) {
