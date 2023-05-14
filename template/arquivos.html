@@ -14,7 +14,9 @@
     <tr>
         <th >Nome do arquivo</th>
         <th class="px-6 py-4 font-medium text-gray-900">Arquivo</th>
+        <th>Excluir</th>
         <th>Compartilhar Documento</th>
+        
     </tr>
 </thead>
 
@@ -22,8 +24,10 @@
     {%for doc in documentos%}
         <tr >
             <td >{{doc.nome_doc}}</td>
-            <td >{{doc.file}}</td>
-            <td><a href="showU.php?iddoc={{doc.iddoc}}&idusr={{doc.usuario_idusr}}">Compartilhar documento</a></td>
+            <td ><a class="dwn" href="download.php?iddoc={{doc.iddoc}}&idusr={{doc.usuario_idusr}}"> {{doc.file}}</a></td>
+            <td><a id="btn" href="del_conf.php?idusr={{doc.usuario_idusr}}&iddoc={{doc.iddoc}}">Excluir</a></td>
+            <td><a id="btn" href="showU.php?iddoc={{doc.iddoc}}&idusr={{doc.usuario_idusr}}">Compartilhar documento</a></td>
+            
         </tr>
         {%else%}
             <tr>
@@ -32,6 +36,6 @@
     {%endfor%}
 </tbody>
 </table>
-<a class="btn btn-2" href="index.php?idusr={{idusr}}">Voltar</a>
+<a id="btn" class="btn btn-2" href="index.php?idusr={{idusr}}">Voltar</a>
 </body>
 </html>

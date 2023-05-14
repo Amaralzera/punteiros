@@ -12,6 +12,15 @@ if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'logado') {
     die;
 }
 
+$sql = $pdo->prepare('SELECT file FROM documento WHERE iddoc = ?');
+$sql->execute([$idD]);
+
+$file = $sql->fetchColumn();
+
+if ($file) {
+    unlink('uploads/' . $file);
+}
+
 $share = $pdo->prepare('DELETE FROM doc_share WHERE documento_iddoc = ?');
 $share->execute([$idD]);
 

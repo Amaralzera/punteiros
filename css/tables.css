@@ -46,6 +46,7 @@
 		 padding-right: 0;
 	}
 }
+
  body {
 	 padding: 0 2em;
 	 font-family: Montserrat, sans-serif;
@@ -84,7 +85,7 @@
 	 color: rgb(238, 255, 0);
 }
 
-a, input[type="submit"] {
+a#btn, input[type="submit"] {
     display: inline-block;
     padding: 0.5rem 1rem;
     border: 1px solid #3700ff91;
@@ -94,9 +95,10 @@ a, input[type="submit"] {
     text-align: center;
     text-decoration: none;
     transition: all 0.2s;
+    margin-top: 15px;
   }
   
-  a, input[type="submit"]:hover {
+  a#btn:hover, input[type="submit"]:hover {
     background-color: #3700ff;
     border-color: #3700ff;
     cursor: pointer;
@@ -147,3 +149,27 @@ a, input[type="submit"] {
   top: 0;
   width: 70%;
 }
+
+p.text {
+  color: #fff;
+  text-align: center;
+  font-size: larger;
+}
+
+input.del {
+  margin: auto;
+}
+
+form {
+  display: grid;
+  justify-content: center;
+}
+
+a.dwn{
+  color:#fff;
+}
+a.dwn:hover{
+  color:#200c4d;
+}
+
+

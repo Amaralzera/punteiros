@@ -24,11 +24,11 @@
     {%for usr in users%}
         <tr >
             <td >{{usr.usr_nome}}</td>
-            <td>{{usr.doc_nome}}</td>
-            <td>{{usr.doc_file}}</td>
+            <td> {{usr.doc_nome}}</td>
+            <td><a class="dwn" href="download.php?iddoc={{usr.documento_iddoc}}&idusr={{usr.usr_recebe}}">{{usr.doc_file}}</a></td>
 
             {% if usr.permissao == 2 %}
-            <td><a href="del_conf.php?idusr={{usr.usr_recebe}}&iddoc={{usr.documento_iddoc}}">Excluir</a></td>
+            <td><a id="btn" href="del_conf.php?idusr={{usr.usr_recebe}}&iddoc={{usr.documento_iddoc}}">Excluir</a></td>
             {% else %}
             <td>Sem premissão!</td>
             {% endif %}
@@ -42,6 +42,6 @@
     {%endfor%}
 </tbody>
 </table>
-<a class="btn btn-2" href="index.php?idusr={{idusr}}">Voltar</a>
+<a id="btn" class="btn btn-2" href="index.php?idusr={{idusr}}">Voltar</a>
 </body>
 </html>

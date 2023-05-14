@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/tables.css">
 </head>
 <body>
     <form action="delete.php?idusr={{users.idusr}}&iddoc={{doc.iddoc}}" method="post">
-    <h1>Exlcuir arquivo {{doc.nome_doc}}</h1>
+    <h1>Excluindo arquivo {{doc.nome_doc}}!</h1>
 
-    <p>Você tem certeza que deseja exluir o arquivo {{doc.nome_doc}} ?</p>
-    <p>Isso não poderá ser desfeito!</p>
+    <p class="text">Você tem certeza que deseja excluir o arquivo {{doc.nome_doc}} ?</p>
+    <p class="text">Isso não poderá ser desfeito!</p>
     
-    <input type="submit" value="Exluir">
+    <input class="del" type="submit" value="Excluir">
     </form>
+    <a id="btn" href="arquivos.php?idusr={{users.idusr}}">Cancelar</a>
 </body>
 </html>
