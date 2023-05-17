@@ -11,6 +11,8 @@
     <table class="rwd-table">
 
 <thead >
+    <input type="text" id="searchInput" placeholder="Pesquisar...">
+    <button type="button" onclick="searchFiles()">Pesquisar</button>
     <tr>
         <th >Nome do arquivo</th>
         <th class="px-6 py-4 font-medium text-gray-900">Arquivo</th>
@@ -37,5 +39,47 @@
 </tbody>
 </table>
 <a id="btn" class="btn btn-2" href="index.php?idusr={{idusr}}">Voltar</a>
+<script>
+    function searchFiles() {
+        var input = document.getElementById("searchInput").value.toUpperCase();
+        var table = document.getElementsByTagName("table")[0];
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var found = false;
+
+            for (var j = 0; j < cells.length; j++) {
+                var cellText = cells[j].innerText.toUpperCase();
+
+                if (cellText.indexOf(input) > -1) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+    document.getElementById('searchinput').addEventListener('keyup', function() {
+  var searchTerm = this.value.toLowerCase(); // Obtém o valor da barra de pesquisa em letras minúsculas
+  var items = document.getElementsByClassName('item'); // Supondo que você tenha elementos com a classe 'item' dentro da pasta
+
+  // Itera sobre os itens e oculta aqueles que não correspondem ao termo de pesquisa
+  for (var i = 0; i < items.length; i++) {
+    var itemText = items[i].textContent.toLowerCase(); // Obtém o texto do item em letras minúsculas
+
+    if (itemText.includes(searchTerm)) {
+      items[i].style.display = 'block'; // Mostra o item
+    } else {
+      items[i].style.display = 'none'; // Oculta o item
+    }
+  }
+});
+</script>
 </body>
 </html>

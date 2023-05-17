@@ -13,6 +13,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'logado') {
     die;
 }
 
+
 $doc = new Documento();
 $documentos = $doc->getAll(['usuario_idusr' => $id]);
 

@@ -70,6 +70,9 @@ ENGINE = InnoDB;
 
 ALTER TABLE `doc_share` ADD `permissao` INT(1) NULL AFTER `iddoc_share`;
 
+ALTER TABLE `documentos` ADD `data` DATE AFTER `usuarios_idusuario`;
+UPDATE `documentos` SET `data` = CURRENT_DATE();
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
