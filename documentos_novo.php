@@ -11,10 +11,27 @@ if (!isset($_GET['idusr'])) {
     exit;
 }
 
+date_default_timezone_set('America/Sao_Paulo');
+
 $id = $_GET['idusr'];
+
+$allowedExtensions = ['pdf', 'doc', 'docx'];
+$allowedMimeTypes = ['application/pdf',
+ 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$_FILES['arquivo']['error']) {
     $nome = $_POST['nome'];
+
+    $fileExtension = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
+    $fileMimeType = $_FILES['arquivo']['type'];
+
+    if (!in_array(strtolower($fileExtension), $allowedExtensions)) {
+        die('Tipo de arquivo não permitido, aceitomos apenas PDF, DOC e DOCX por aqui! 😊');
+    }
+
+    if (!in_array($fileMimeType, $allowedMimeTypes)) {
+        die('Tipo de arquivo não permitido, aceitomos apenas PDF, DOC e DOCX por aqui! 😊');
+    }
 
     $arquivo = sanitize_filename($_FILES['arquivo']['name']);
     $arquivo = verifica_nome_arquivo('uploads/', $arquivo);
@@ -29,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$_FILES['arquivo']['error']) {
         $doc->insert([
             'iddoc' => null,
             'nome_doc' => $nome,
+            'publicado' => date('Y-m-d'), 
             'file' => $arquivo,
             'usuario_idusr' => $id,
         ]);
