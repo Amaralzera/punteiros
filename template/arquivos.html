@@ -6,15 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <table class="rwd-table">
 
 <thead >
-    <input type="text" id="searchInput" placeholder="Pesquisar...">
-    <button type="button" onclick="searchFiles()">Pesquisar</button>
+<td>
+ <div class="search-box">
+    <button type="button" onclick="searchFiles()" class="btn-search"><i class="fas fa-search"></i></button>
+    <input type="text" id="searchInput" class="input-search" placeholder="Pesquisar Arquivo">
+  </div>
+  
+
+    </td>
     <tr>
+    
         <th >Nome do arquivo</th>
+        <th>Publicado</th>
         <th class="px-6 py-4 font-medium text-gray-900">Arquivo</th>
         <th>Excluir</th>
         <th>Compartilhar Documento</th>
@@ -26,6 +35,7 @@
     {%for doc in documentos%}
         <tr >
             <td >{{doc.nome_doc}}</td>
+            <td>{{doc.publicado}}</td>
             <td ><a class="dwn" href="download.php?iddoc={{doc.iddoc}}&idusr={{doc.usuario_idusr}}"> {{doc.file}}</a></td>
             <td><a id="btn" href="del_conf.php?idusr={{doc.usuario_idusr}}&iddoc={{doc.iddoc}}">Excluir</a></td>
             <td><a id="btn" href="showU.php?iddoc={{doc.iddoc}}&idusr={{doc.usuario_idusr}}">Compartilhar documento</a></td>

@@ -6,15 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/tables.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
     <table class="rwd-table">
 <h1>Arquivos Compartilhados com você:</h1>
 
 <thead >
+<td>
+ <div class="search-box">
+    <button type="button" onclick="searchFiles()" class="btn-search"><i class="fas fa-search"></i></button>
+    <input type="text" id="searchInput" class="input-search" placeholder="Pesquisar Arquivo">
+  </div>
+    </td>
     <tr>
         <th>Remetente</th>
         <th>Nome do arquivo</th>
+        <th>Publicado</th>
         <th>Arquivo</th>
         <th>Excluir</th>
     </tr>
@@ -25,6 +34,7 @@
         <tr >
             <td >{{usr.usr_nome}}</td>
             <td> {{usr.doc_nome}}</td>
+            <td>{{usr.publi_date}}</td>
             <td><a class="dwn" href="download.php?iddoc={{usr.documento_iddoc}}&idusr={{usr.usr_recebe}}">{{usr.doc_file}}</a></td>
 
             {% if usr.permissao == 2 %}
@@ -43,5 +53,48 @@
 </tbody>
 </table>
 <a id="btn" class="btn btn-2" href="index.php?idusr={{idusr}}">Voltar</a>
+
+<script>
+    function searchFiles() {
+        var input = document.getElementById("searchInput").value.toUpperCase();
+        var table = document.getElementsByTagName("table")[0];
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName("td");
+            var found = false;
+
+            for (var j = 0; j < cells.length; j++) {
+                var cellText = cells[j].innerText.toUpperCase();
+
+                if (cellText.indexOf(input) > -1) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+    document.getElementById('searchinput').addEventListener('keyup', function() {
+  var searchTerm = this.value.toLowerCase(); // Obtém o valor da barra de pesquisa em letras minúsculas
+  var items = document.getElementsByClassName('item'); // Supondo que você tenha elementos com a classe 'item' dentro da pasta
+
+  // Itera sobre os itens e oculta aqueles que não correspondem ao termo de pesquisa
+  for (var i = 0; i < items.length; i++) {
+    var itemText = items[i].textContent.toLowerCase(); // Obtém o texto do item em letras minúsculas
+
+    if (itemText.includes(searchTerm)) {
+      items[i].style.display = 'block'; // Mostra o item
+    } else {
+      items[i].style.display = 'none'; // Oculta o item
+    }
+  }
+});
+</script>
 </body>
 </html>

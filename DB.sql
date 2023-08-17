@@ -70,8 +70,8 @@ ENGINE = InnoDB;
 
 ALTER TABLE `doc_share` ADD `permissao` INT(1) NULL AFTER `iddoc_share`;
 
-ALTER TABLE `documentos` ADD `data` DATE AFTER `usuarios_idusuario`;
-UPDATE `documentos` SET `data` = CURRENT_DATE();
+ALTER TABLE `documento` ADD `publicado` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `nome_doc`;
+UPDATE `documento` SET `publicado` = CURRENT_DATE();
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

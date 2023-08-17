@@ -10,7 +10,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user'] !== 'logado') {
     die;
 }
 
-$sql = $pdo->prepare('SELECT doc_share.*, documento.nome_doc AS doc_nome,
+$sql = $pdo->prepare('SELECT doc_share.*, documento.publicado AS publi_date, documento.nome_doc AS doc_nome,
  documento.file AS doc_file, documento.usuario_idusr AS doc_uid,
   usuario.nome AS usr_nome 
   FROM doc_share JOIN documento ON documento.iddoc = doc_share.documento_iddoc 
